@@ -46,6 +46,13 @@
         function carrello(){
             $importo= 0;
             $totArticoli= 0;
+
+            //Variabili Paypal
+            $item_name= 1;
+            $item_number= 1;
+            $ammount= 1;
+            $quantity= 1;
+
             foreach($_SESSION as $name => $value){
                 if($value > 0){
               
@@ -76,10 +83,18 @@
                                     <a class="btn btn-danger" href="carrello.php?delete={$row['id_prodotto']}" role="button">Cancella</a>
                                     </div>
                                 </li>
-                
+                                <input type="hidden" name="item_name_{$item_name}" value="{$row['nome_prodotto']}"> 
+                                <input type="hidden" name="item_number_{$item_number}" value="{$row['id_prodotto']}"> 
+                                <input type="hidden" name="amount_{$ammount}" value="{$row['prezzo']}">
+                                <input type="hidden" name="quantity_{$quantity}" value="{$value}">
+
                                 STRINGA_PDT;
                                 
                                 echo $prodottoCarrello;
+                                $item_name++;
+                                $item_number++;
+                                $ammount++;
+                                $quantity++;
                             }
                             $_SESSION['totale']= $importo += $importoparziale;
                             $_SESSION['totale_art']= $totArticoli;
