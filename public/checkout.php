@@ -1,16 +1,19 @@
 <?php require_once("../risorse/config.php"); ?>
-
+<?php require_once("carrello.php"); ?>
 <?php include(FRONT_END.'header.php'); ?>
 
-<?php echo $_SESSION['prodotto_1'];?>
+<?php //echo $_SESSION['prodotto_1'];?>
 
 <div class="container-fluid my-5 ">
   <!-- PAYPAL -->
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-    <input type="hidden" name="business" value="sb-1yt0a29884659@business.example.com"> 
+  <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+
+    <input type="hidden" name="business" value="sb-bkstk29941044@personal.example.com"> 
     <input type="hidden" name="cmd" value="_cart">
     <INPUT TYPE="hidden" name="charset" value="utf-8">
     <INPUT TYPE="hidden" NAME="currency_code" value="EUR">
+    <input type="hidden" name="upload" value="1">
+    
     
     <div class="row g-5 ">
       <div class="col-md-8 mx-auto">
@@ -66,11 +69,9 @@
         
         <span class="text-primary text-center">Articoli: <?php echo isset($_SESSION['totale_art']) ? $_SESSION['totale_art'] : $_SESSION['totale_art'] = '0';?></span>
           <span class="text-primary text-center">Totale ordine: € <?php echo isset($_SESSION['totale']) ? $_SESSION['totale'] : $_SESSION['totale'] = '0';?></span>
-          <div class="input-group mb-1">
-            <input type="text" class="form-control" placeholder="Promo code">
-          </div>
-          <button type="submit" class="btn btn-secondary">CheckOut</button>
-          <div class="text-center"><input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online"></div>
+
+          <div class="text-center">
+            <input type="image" src="https://www.paypalobjects.com/en_US/IT/i/btn/btn_paynowCC_LG.gif"  name="upload" title="PayPal - The safer, easier way to pay online!" alt="Buy Now" />          </div>
         </form>
       </div>
     </div>
