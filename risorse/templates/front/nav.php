@@ -22,7 +22,7 @@
               <a class="nav-link" href="checkout.php">Checkout</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Admin</a>
+              <a class="nav-link" href="../public/Admin/index.php">Admin</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contatti</a>

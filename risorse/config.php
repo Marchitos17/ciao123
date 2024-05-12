@@ -2,8 +2,10 @@
   
     defined('FRONT_END') ? null : define('FRONT_END',__DIR__.'/templates/front/');
     defined('BACK_END') ? null : define('BACK_END',__DIR__.'/templates/back/');
+    defined('IMG_UPLOADS') ? null : define('IMG_UPLOADS',__DIR__.'immagini/');
 
     //echo FRONT_END;
+    //echo IMG_UPLOADS;
 
     //connessione database
 
@@ -21,5 +23,4 @@
     }
 
     require_once('funzioni.php');
-    require_once('carrello.php');
     session_start();
